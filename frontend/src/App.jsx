@@ -4,9 +4,11 @@ import HomePage from "./pages/HomePage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import {Box} from "@chakra-ui/react";
 import {useColorModeValue} from "./components/ui/color-mode.jsx";
+import {Toaster} from './components/ui/toaster.jsx'
 
 function App() {
   return (
+      <>
       <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
           <Navbar />
           <Routes>
@@ -14,6 +16,8 @@ function App() {
               <Route path="/" element={<HomePage />} />
           </Routes>
       </Box>
+          <Toaster />
+      </>
   );
 }
 

@@ -4,10 +4,10 @@ import mongoose from 'mongoose'
 // Get all the products from Database
 export const getProducts = async (req, res) => {
     try {
-        const products = Product.find({})
+        const products = await Product.find({})
         res.status(200).json({success: true, data: products})
     } catch (e) {
-        console.log('Failed to get products from database', error)
+        console.log('Failed to get products from database', e)
         res.status(500).json({success: false, error: e})
     }
 }
@@ -48,7 +48,7 @@ export const updateProduct = async (req, res) => {
 // Delete a product from Database
 export const deleteProduct = async (req, res) => {
     const {id} = req.params
-    if (!mongoose.Types.ObjectId.isValid(productId)) {
+    if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).json({success: false, error: 'Product with ID does not exist'})
     }
     console.log("deleting product from database", id)

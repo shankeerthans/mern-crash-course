@@ -1,6 +1,8 @@
 import {Container, Flex, HStack, Link, Button, Text} from "@chakra-ui/react";
 import {LiaPlusSquare} from "react-icons/lia";
 import {useColorMode} from "./ui/color-mode.jsx";
+import { CiLight, CiDark } from "react-icons/ci";
+import {GiShoppingCart} from "react-icons/gi";
 
 export default function Navbar() {
     const {colorMode, toggleColorMode} = useColorMode();
@@ -15,17 +17,21 @@ export default function Navbar() {
                     bgGradient={colorMode === "dark" ? "linear(to-r, gray.600, gray.800)" : "linear(to-r, tomato, pink)"}
                     bgClip="red"
                 >
-                    <Link to="/">Product Store</Link>
+                    <HStack>
+                        <Link href={"/"} variant={"plain"}> Product Store </Link>
+                        <GiShoppingCart size={22}/>
+                    </HStack>
+
                 </Text>
                 <HStack spacing={2} alignItems="center" justifyContent="space-between">
-                    <Link to="/create">
+                    <Link href={"/create"} variant={"plain"}>
                         <Button>
                             <LiaPlusSquare />
                         </Button>
                     </Link>
 
                     <Button onClick={toggleColorMode}>
-                        {colorMode === "dark" ? "🌚" : "🌝"}
+                        {colorMode === "dark" ? <CiLight /> : <CiDark />}
                     </Button>
                 </HStack>
             </Flex>
