@@ -1,13 +1,17 @@
-# mern-crash-course
-
+# Mern Crash Course
+![Demo App](/frontend/public/frontpage_readme.png)
 ## How To Run
-Create the file `backend/config.env` with your Mongo URI:
+Create the file `backend/config.env` with your Mongo URI & Port:
 ```
-MONGO_URI=mongodb+srv://<username>:<password>@sandbox.jadwj.mongodb.net/
+MONGO_URI=your_mongo_uri
+PORT=8000
 ```
 
-Start server:
+Build App:
 ```
-npm install
-npm run dev
+npm run build
+```
+Run App:
+```
+npm run start
 ```
