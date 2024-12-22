@@ -14,8 +14,8 @@ export default function Navbar() {
                     fontWeight="bold"
                     textTransform="uppercase"
                     textAlign="center"
-                    bgGradient={colorMode === "dark" ? "linear(to-r, gray.600, gray.800)" : "linear(to-r, tomato, pink)"}
-                    bgClip="red"
+                    bgGradient="to-r" gradientFrom="blue.800" gradientTo="pink.800"
+                    bgClip="text"
                 >
                     <HStack>
                         <Link href={"/"} variant={"plain"}> Product Store </Link>

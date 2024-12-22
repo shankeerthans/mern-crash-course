@@ -54,6 +54,13 @@ export const useProductStore = create((set) => (
                 },
                 body: JSON.stringify(newProduct)
             })
+            const data = await res.json()
+            set((state) => ({products: state.products.map((product) => (product._id === id) ? data.data : product)}))
+            if (data.success) {
+                return {success: true, message: 'Product updated successfully.'};
+            } else {
+                return {success: false, message: 'Product not found.'};
+            }
         }
     }
 ))
